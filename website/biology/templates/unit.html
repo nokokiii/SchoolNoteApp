@@ -6,7 +6,12 @@
     <link rel="stylesheet" href="{% static 'unit.css' %}">
 </head>
 <body>
-    <h1 class="unit-title">Biology - {{ unit }}</h1>
+    <div class="unit-header">
+        <div class="go-back">
+            <a href="/biology/units">Działy</a>
+        </div>
+        <h1 class="unit-title">Biology - {{ unit }}</h1>
+    </div>
     {% if notes %}
         {% for note in notes %}
             <div class="notes">
@@ -30,10 +35,6 @@
 
     <div class="note-add">
         <a href="/biology/notes/add/{{ unit.unitId }}">Dodaj nową notatke</a>
-    </div>
-
-    <div class="go-back">
-        <a href="/biology/units">Działy</a>
     </div>
 </body>
 </html>
