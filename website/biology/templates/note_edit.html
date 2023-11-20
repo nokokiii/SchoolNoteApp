@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if note %}Edit Note{% else %}Create Note{% endif %}</title>
+</head>
+<body>
+    <h2>Edit Note</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.noteTitle.id_for_label }}">Note Title:</label>
+        {{ form.noteTitle }}
+        <br>
+        <label for="{{ form.noteContent.id_for_label }}">Note Content:</label>
+        {{ form.noteContent }}
+        <br>
+        <button type="submit">Edit</button>
+    </form>
+</body>

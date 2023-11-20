@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Units - Biology</title>
+</head>
+<body>
+    <h1>Units</h1>
+
+    {% if units %}
+        <ul>
+            {% for unit in units %}
+                <li><a href="/biology/unit/{{ unit.unitId }}">{{ unit.unitName }}</a> | <a href="/biology/units/delete/{{ unit.unitId}}">Delete</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No units found.</p>
+    {% endif %}
+    
+    <div>
+        <a href="/biology/units/add">New Unit</a>
+    </div>
+
+    <div>
+        <a href="/subjects">Back</a>
+    </div>
+</body>
+</html>

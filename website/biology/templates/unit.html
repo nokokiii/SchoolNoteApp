@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Page</title>
+    <link rel="stylesheet" href="{% static 'unit.css' %}">
+</head>
+<body>
+    <h1 class="unit-title">Biology - {{ unit }}</h1>
+    {% if notes %}
+        {% for note in notes %}
+            <div class="notes">
+                <span class="notes-header">
+                    <h2 class="notes-title">{{ note.noteTitle }}</h2>
+                    <div class="notes-header-buttons">
+                        <div class="note-edit">
+                            <a href="/biology/notes/edit/{{ note.noteId }}">Edytuj</a>
+                        </div>
+                        <div class="note-delete">
+                            <a href="/biology/notes/delete/{{ note.noteId  }}">Usuń</a>
+                        </div>
+                    </div>
+                </span>
+                <p>{{ note.noteContent }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Nie znaleziono notatek.</p>
+    {% endif %}
+
+    <div class="note-add">
+        <a href="/biology/notes/add/{{ unit.unitId }}">Dodaj nową notatke</a>
+    </div>
+
+    <div class="go-back">
+        <a href="/biology/units">Działy</a>
+    </div>
+</body>
+</html>

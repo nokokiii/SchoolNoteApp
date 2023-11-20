@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(177, 187, 196);
+}
+
+.unit-title {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.notes {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0 1em black;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.notes-header-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 10em;
+    margin-right: 2em;
+}
+
+.note-edit, .note-delete, .note-add, .go-back {
+    background-color: rgb(119, 192, 255);
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.note-edit:hover, .note-delete:hover, .note-add:hover, .go-back:hover {
+    background-color: rgb(0, 119, 255);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.note-add {
+    margin-top: 3em;
+}
+
+.go-back {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+
+.go-back:hover {
+    background-color: rgb(0, 119, 255);
+}
