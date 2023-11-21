@@ -1,16 +1,21 @@
+{% extends "base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Unit Page</title>
+
+{% block title %}
+    Biologia działy
+{% endblock %}
+
+{% block css %}
     <link rel="stylesheet" href="{% static 'unit.css' %}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <div class="unit-header">
         <div class="go-back">
             <a href="/biology/units">Działy</a>
         </div>
-        <h1 class="unit-title">Biology - {{ unit }}</h1>
+        <h1 class="unit-title">Biologia - {{ unit }}</h1>
     </div>
     {% if notes %}
         {% for note in notes %}
@@ -26,15 +31,14 @@
                         </div>
                     </div>
                 </span>
-                <p>{{ note.noteContent }}</p>
+                <div class='notes-content'>
+                    <p>{{ note.noteContent }}</p>
+                </div>
             </div>
         {% endfor %}
-    {% else %}
-        <p>Nie znaleziono notatek.</p>
     {% endif %}
 
     <div class="note-add">
-        <a href="/biology/notes/add/{{ unit.unitId }}">Dodaj nową notatke</a>
+        <a href="/biology/notes/add/{{ unit.unitId }}">Dodaj nową</a>
     </div>
-</body>
-</html>
+{% endblock %}

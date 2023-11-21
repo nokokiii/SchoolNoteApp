@@ -1,18 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% if note %}Edit Note{% else %}Create Note{% endif %}</title>
-</head>
-<body>
-    <h2>Edit Note</h2>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Edytuj Notatke
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'note-add-edit.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="form-title">Edytuj Notatke</h1>
     <form method="post">
-        {% csrf_token %}
-        <label for="{{ form.noteTitle.id_for_label }}">Note Title:</label>
-        {{ form.noteTitle }}
-        <br>
-        <label for="{{ form.noteContent.id_for_label }}">Note Content:</label>
-        {{ form.noteContent }}
-        <br>
-        <button type="submit">Edit</button>
+        <div>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-field">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="submit">Edytuj</button>
     </form>
-</body>
+{% endblock %}

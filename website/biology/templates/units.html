@@ -1,27 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Units - Biology</title>
-</head>
-<body>
-    <h1>Units</h1>
+{% extends "base.html" %}
 
+{% load static %}
+
+{% block title %}Działy Biologia{% endblock %}
+
+{% block css%}
+    <link rel="stylesheet" href="{% static 'units.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">Działy Biologia</h1>
     {% if units %}
-        <ul>
+        <div class="grid">
             {% for unit in units %}
-                <li><a href="/biology/unit/{{ unit.unitId }}">{{ unit.unitName }}</a> | <a href="/biology/units/delete/{{ unit.unitId}}">Delete</li>
+                <div class="unit-panel">
+                    <h3 class="unit-panel-title">{{ unit.unitName }}</h3>
+                    <div class="actions">
+                        <a href="/biology/unit/{{ unit.unitId }}">Przejdź do działu</a>
+                        <a href="/biology/units/delete/{{ unit.unitId}}">Delete</a>
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
+            <a href="/biology/units/add" class="unit-panel">
+                <p>Dodaj dział</p>
+            </a>        
+        </div>
     {% else %}
-        <p>No units found.</p>
+        <a href="/biology/units/add" class="unit-panel">
+            <p>Dodaj dział</p>
+        </a> 
     {% endif %}
-    
-    <div>
-        <a href="/biology/units/add">New Unit</a>
-    </div>
-
-    <div>
+    <div class="go-back">
         <a href="/subjects">Back</a>
     </div>
-</body>
-</html>
+{% endblock %}

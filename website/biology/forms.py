@@ -6,6 +6,13 @@ class UnitForm(forms.ModelForm):
     class Meta:
         model = Units
         fields = ['unitName']
+        labels = {
+            'unitName': 'Nazwa działu'
+        }
+
+        widgets = {
+            'unitName': forms.TextInput(attrs={'placeholder': 'Podaj nazwę działu', 'class': 'form-input'})
+        }
         
 
 class NoteForm(forms.ModelForm):    
@@ -13,11 +20,12 @@ class NoteForm(forms.ModelForm):
         model = Notes
         fields = ['noteTitle', 'noteContent']
         labels = {
-            'noteTitle': 'Title',
-            'noteContent': 'Notes'
+            'noteTitle': 'Tytuł',
+            'noteContent': 'Notatka'
         }
+
         widgets = {
-            'noteTitle': forms.TextInput(attrs={'placeholder': 'Enter note title here'}),
-            'noteContent': forms.Textarea(attrs={'cols': 80, 'rows': 5, 'placeholder': 'Enter your notes here'})
+            'noteTitle': forms.TextInput(attrs={'placeholder': 'Podaj tytuł notatki', 'class': 'form-input'}),
+            'noteContent': forms.Textarea(attrs={'cols': 80, 'rows': 5, 'placeholder': 'Wpisz swoją notatke', 'class': 'form-textarea'})
         }
         

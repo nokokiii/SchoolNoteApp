@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Page Title</title>
-    </head>
-    <body>
-        <h1>My Subjects</h1>
-        <ul>
-            <li><a href="biology/units">Biology</a></li>
-        </ul>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Przedmioty
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'subjects.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">My Subjects</h1>
+    <div class="subject-panel">
+        <h3 class="subject-panel-title">Biologia</h3>
+        <a href="biology/units" class="unit-action">Przejdź do przedmioty</a>
+    </div>
+{% endblock %}
