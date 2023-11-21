@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,200&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #F9F6EE;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.title {
+    color: #000;
+    font-family: 'Raleway';
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    justify-self: start;
+}
+
+.subject-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30em;
+    height: 15em;
+    border-radius: 16px;
+    background: #DBD7CC;
+    box-shadow: 9px 10px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 0.5em 1em;
+    margin-bottom: 3em;
+}
+
+.subject-panel-title {
+    color: #000000;
+    font-family: 'Roboto Condensed';
+    font-size: 44px; 
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+
+}
+
+.unit-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 12px;
+    background: #FF6F6F;
+    color: #DBD7CC;
+    font-family: 'Roboto Condensed';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase; 
+}
+
+.unit-action:hover {
+    background: #a84747;
+    transition: 200ms;
+}
