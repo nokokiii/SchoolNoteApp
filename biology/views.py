@@ -5,11 +5,16 @@ from .forms import UnitForm, NoteForm
 
 # Create your views here.
 def units(request):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login')
     units = Units.objects.all()
     return render(request, 'units.html', {'units': units})
 
 
 def add_unit(request):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login')
+    
     if request.method == 'POST':
         form = UnitForm(request.POST)
         if form.is_valid():
@@ -19,20 +24,25 @@ def add_unit(request):
         form = UnitForm()
     return render(request, 'unit_add.html', {'form': form})
 
-
 def delete_unit(request, unitId):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login')
     unit = Units.objects.get(pk=unitId)
     unit.delete()
     return redirect('/biology/units')
 
 
 def unit(request, unitId):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login')
     unit = Units.objects.get(pk=unitId)
     notes = Notes.objects.all().filter(unitId=unitId)
     return render(request, 'unit.html', {'unit': unit, 'notes': notes})
 
 
 def add_note(request, unitId):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login')
     unit = Units.objects.get(pk=unitId)
     
     if request.method == 'POST':
@@ -48,12 +58,16 @@ def add_note(request, unitId):
 
 
 def delete_note(request, noteId):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login')
     note = Notes.objects.get(pk=noteId)
     note.delete()
     return redirect(f'/biology/unit/{note.unitId.unitId}')
 
 
 def edit_note(request, noteId):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login')
     note = Notes.objects.get(pk=noteId)
     if request.method == 'POST':
         form = NoteForm(request.POST, instance=note)
