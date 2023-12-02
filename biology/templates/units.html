@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Działy Biologia{% endblock %}
+
+{% block css%}
+    <link rel="stylesheet" href="{% static 'units.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">Działy Biologia</h1>
+    {% if units %}
+        <div class="grid">
+            {% for unit in units %}
+                <div class="unit-panel">
+                    <h3 class="unit-panel-title">{{ unit.unitName }}</h3>
+                    <div class="actions">
+                        <a href="/biology/unit/{{ unit.unitId }}">Przejdź do działu</a>
+                        <a href="/biology/units/delete/{{ unit.unitId}}">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+            <a href="/biology/units/add" class="unit-panel">
+                <p>Dodaj dział</p>
+            </a>        
+        </div>
+    {% else %}
+        <a href="/biology/units/add" class="unit-panel">
+            <p>Dodaj dział</p>
+        </a> 
+    {% endif %}
+    <div class="go-back">
+        <a href="/subjects">Back</a>
+    </div>
+{% endblock %}
