@@ -8,7 +8,7 @@ def units(request):
     if not request.user.is_authenticated:
         return redirect('/accounts/login')
     units = Units.objects.all()
-    return render(request, 'units.html', {'units': units})
+    return render(request, 'biology/units.html', {'units': units})
 
 
 def add_unit(request):
@@ -37,7 +37,7 @@ def unit(request, unitId):
         return redirect('/accounts/login')
     unit = Units.objects.get(pk=unitId)
     notes = Notes.objects.all().filter(unitId=unitId)
-    return render(request, 'unit.html', {'unit': unit, 'notes': notes})
+    return render(request, 'biology/unit.html', {'unit': unit, 'notes': notes})
 
 
 def add_note(request, unitId):

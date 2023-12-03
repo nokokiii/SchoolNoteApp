@@ -4,5 +4,5 @@ from django.shortcuts import render, redirect
 def subjects(request):
     if not request.user.is_authenticated:
         return redirect('/accounts/login')
-    return render(request, 'subjects.html')
+    return render(request, 'main/subjects.html')
     
