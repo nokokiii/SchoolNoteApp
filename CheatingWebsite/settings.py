@@ -19,6 +19,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 INSTALLED_APPS = [
     'biology.apps.BiologyConfig',
+    'history.apps.HistoryConfig',
     'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
