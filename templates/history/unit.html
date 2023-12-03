@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Historia działy
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'unit.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="unit-header">
+        <div class="go-back">
+            <a href="/history/units">Działy</a>
+        </div>
+        <h1 class="unit-title">Historia - {{ unit }}</h1>
+    </div>
+    {% if notes %}
+        {% for note in notes %}
+            <div class="notes">
+                <span class="notes-header">
+                    <h2 class="notes-title">{{ note.noteTitle }}</h2>
+                    <div class="notes-header-buttons">
+                        <div class="note-edit">
+                            <a href="/history/notes/edit/{{ note.noteId }}">Edytuj</a>
+                        </div>
+                        <div class="note-delete">
+                            <a href="/history/notes/delete/{{ note.noteId  }}">Usuń</a>
+                        </div>
+                    </div>
+                </span>
+                <div class='notes-content'>
+                    <pre>{{ note.noteContent }}</pre>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="note-add">
+        <a href="/history/notes/add/{{ unit.unitId }}">Dodaj nową</a>
+    </div>
+{% endblock %}
