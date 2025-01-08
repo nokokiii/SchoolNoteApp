@@ -17,6 +17,9 @@
         </div>
         <h1 class="unit-title">Historia - {{ unit }}</h1>
     </div>
+    <div class="note-add" style="margin: 2em;">
+        <a href="/history/notes/add/{{ unit.unitId }}">Dodaj nową</a>
+    </div>
     {% if notes %}
         {% for note in notes %}
             <div class="notes">
@@ -31,14 +34,10 @@
                         </div>
                     </div>
                 </span>
-                <div class='notes-content'>
-                    <pre>{{ note.noteContent }}</pre>
+                <div class="notes-content">
+                    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word;">{{ note.noteContent }}</pre>
                 </div>
             </div>
         {% endfor %}
     {% endif %}
-
-    <div class="note-add">
-        <a href="/history/notes/add/{{ unit.unitId }}">Dodaj nową</a>
-    </div>
 {% endblock %}
